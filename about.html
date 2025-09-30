@@ -6,110 +6,103 @@
   <title>About • MSS:80 Loader</title>
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Minimal helpers so this page looks good even without app chrome */
-    .about-wrap{max-width:920px;margin:64px auto 80px;padding:0 16px;color:var(--term-green,#cfe8ff);}
-    .kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;opacity:.8;margin-bottom:6px}
-    h1{font-size:28px;margin:.2rem 0 1rem}
-    h2{font-size:20px;margin:1.4rem 0 .6rem}
-    h3{font-size:16px;margin:1rem 0 .4rem}
-    p{margin:.6rem 0;opacity:.95}
-    .grid{display:grid;gap:16px}
-    @media(min-width:840px){.grid.two{grid-template-columns:1fr 1fr}}
-    .card{border:1px solid var(--term-green,#2bd47b);border-radius:12px;background:#060a0e; padding:14px 16px}
-    .muted{opacity:.8}
-    .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
-    .tag{display:inline-block;border:1px solid currentColor;border-radius:999px;padding:2px 8px;font-size:12px;margin-right:6px;opacity:.85}
-    .hr{height:1px;background:linear-gradient(90deg, transparent, var(--term-green,#2bd47b), transparent);margin:18px 0}
-    a{color:var(--term-green,#2bd47b);text-decoration:none}
-    a:hover{text-decoration:underline}
-    ul{margin:.4rem 0 .8rem 1.2rem}
-    .toplinks{display:flex;flex-wrap:wrap;gap:8px;margin:.6rem 0 1.2rem}
+    main.about {
+      padding: 2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    main.about h1, main.about h2, main.about h3 {
+      color: var(--term-amber);
+      margin-top: 1.5em;
+    }
+    main.about a {
+      color: var(--term-green);
+    }
+    main.about a:hover {
+      color: var(--term-amber);
+    }
+    main.about ul {
+      padding-left: 1.2em;
+    }
   </style>
 </head>
 <body>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <button id="hamburger" aria-label="Menu">≡</button>
+    <div class="brand">MSS:80<span class="accent">||</span>About</div>
+  </header>
 
-  <!-- Optional: if your loader already renders a topbar, this will sit beneath it -->
-  <div class="about-wrap">
-    <div class="kicker">About this suite</div>
-    <h1 class="mono">MSS:80 Loader</h1>
-    <p>
-      This loader is the front door for two lightweight BattleTech fan tools built to run anywhere your browser does.
-      Open either app, bounce to help, or read what powers each piece below.
-    </p>
+  <!-- SIDE MENU (reuse same nav as loader) -->
+  <nav id="menu" class="menu" aria-label="Main">
+    <a data-open="trs80" role="button" aria-label="Open TRS:80">Technical Readout System</a>
+    <a data-open="skirmish" role="button" aria-label="Open MSS:84">Mobile Skirmish System</a>
+    <hr>
+    <a href="help/trs80.html">Help • TRS:80</a>
+    <a href="help/mss84.html">Help • MSS:84</a>
+    <a href="about.html">About</a>
+    <hr>
+    <a data-action="close" role="button">Close</a>
+  </nav>
 
-    <div class="toplinks">
-      <span class="tag mono">MIT Licensed</span>
-      <a class="tag" href="https://github.com/Nevar530/TSR-80_MSS-84_LOADER" target="_blank" rel="noopener">Loader Repo</a>
-      <a class="tag" href="https://github.com/Nevar530/TRS80" target="_blank" rel="noopener">TRS:80 Repo</a>
-      <a class="tag" href="https://github.com/Nevar530/Battletech-Mobile-Skirmish" target="_blank" rel="noopener">MSS:84 Repo</a>
-    </div>
+  <main class="about">
+    <h1>About this suite</h1>
+    <p><strong>MSS:80 Loader</strong><br>
+    This loader is the front door for two lightweight BattleTech fan tools built to run anywhere your browser does. Open either app, bounce to help, or read what powers each piece below.</p>
 
-    <div class="hr"></div>
+    <h2>MIT Licensed</h2>
+    <ul>
+      <li><a href="https://github.com/Nevar530/TSR-80_MSS-84_LOADER" target="_blank">Loader Repo</a></li>
+      <li><a href="https://github.com/Nevar530/TRS80" target="_blank">TRS:80 Repo</a></li>
+      <li><a href="https://github.com/Nevar530/Battletech-Mobile-Skirmish" target="_blank">MSS:84 Repo</a></li>
+    </ul>
 
     <h2>Apps in this suite</h2>
 
-    <div class="grid two">
-      <!-- TRS:80 -->
-      <section class="card">
-        <h3 class="mono">TRS:80 — Technical Readout System:80</h3>
-        <p class="muted">A compact reference + builder for ’Mechs and variants. Browse data, read TRO panels, and crunch G.A.T.O.R. quickly at the table or VTT.</p>
-        <ul>
-          <li>Large manifest of chassis/variants with stats, armor/internals, equipment, BV, role, and refs. :contentReference[oaicite:1]{index=1}</li>
-          <li>Tabbed readouts, weapons lists, and an integrated G.A.T.O.R. calculator with roller. :contentReference[oaicite:2]{index=2}</li>
-          <li>Lance Builder with BV/tonnage/role tracking; export/import JSON for portability. :contentReference[oaicite:3]{index=3}</li>
-          <li>Chassis catalogue with “owned” tracking and filters. :contentReference[oaicite:4]{index=4}</li>
-        </ul>
-        <p class="muted">Tech: pure HTML/CSS/JS; data sourced from MegaMek JSON (CC BY-NC-SA 4.0). :contentReference[oaicite:5]{index=5}</p>
-        <p>
-          <a href="https://nevar530.github.io/TRS80/" target="_blank" rel="noopener">Launch TRS:80</a>
-          &nbsp;•&nbsp;
-          <a href="help/trs80.html" target="_blank" rel="noopener">Help</a>
-        </p>
-      </section>
+    <h3>TRS:80 — Technical Readout System:80</h3>
+    <p>A compact reference + builder for ’Mechs and variants. Browse data, read TRO panels, and crunch G.A.T.O.R. quickly at the table or VTT.</p>
+    <ul>
+      <li>Large manifest of chassis/variants with stats, armor/internals, equipment, BV, role, and references.</li>
+      <li>Tabbed readouts, weapons lists, and an integrated G.A.T.O.R. calculator with roller.</li>
+      <li>Lance Builder with BV/tonnage/role tracking; export/import JSON for portability.</li>
+      <li>Chassis catalogue with “owned” tracking and filters.</li>
+      <li>Tech: pure HTML/CSS/JS; data sourced from MegaMek JSON (CC BY-NC-SA 4.0).</li>
+    </ul>
+    <p>
+      <a href="https://nevar530.github.io/TRS80/" target="_blank">Launch TRS:80</a> • 
+      <a href="help/trs80.html">Help</a>
+    </p>
 
-      <!-- MSS:84 -->
-      <section class="card">
-        <h3 class="mono">MSS:84 — Mobile Skirmish System</h3>
-        <p class="muted">A portable hex-map + skirmish engine designed for quick play on tablet or desktop — no physical map or dice needed.</p>
-        <ul>
-          <li>Hex grid editor with terrain/height/cover, presets, undo/redo, PNG export. :contentReference[oaicite:6]{index=6}</li>
-          <li>Tokens with names, pilots, team colors; turn/initiative tools and 2d6 roller. :contentReference[oaicite:7]{index=7}</li>
-          <li>LOS rays, range measure, fire/visibility aids. :contentReference[oaicite:8]{index=8}</li>
-          <li>Side-dock integration with <a href="https://sheets.flechs.net" target="_blank" rel="noopener">Flechs Sheets</a> for tracking. :contentReference[oaicite:9]{index=9}</li>
-          <li>Optional online play: simple “Uplink” rooms using Firebase snapshots. :contentReference[oaicite:10]{index=10}</li>
-        </ul>
-        <p>
-          <a href="https://nevar530.github.io/Battletech-Mobile-Skirmish/" target="_blank" rel="noopener">Launch MSS:84</a>
-          &nbsp;•&nbsp;
-          <a href="help/skirmish.html" target="_blank" rel="noopener">Help / Wiki</a>
-        </p>
-      </section>
-    </div>
+    <h3>MSS:84 — Mobile Skirmish System</h3>
+    <p>A portable hex-map + skirmish engine designed for quick play on tablet or desktop — no physical map or dice needed.</p>
+    <ul>
+      <li>Hex grid editor with terrain/height/cover, presets, undo/redo, PNG export.</li>
+      <li>Tokens with names, pilots, team colors; turn/initiative tools and 2d6 roller.</li>
+      <li>LOS rays, range measure, fire/visibility aids.</li>
+      <li>Side-dock integration with Flechs Sheets for record-keeping.</li>
+      <li>Optional online play: simple “Uplink” rooms using Firebase snapshots.</li>
+    </ul>
+    <p>
+      <a href="https://nevar530.github.io/Battletech-Mobile-Skirmish/" target="_blank">Launch MSS:84</a> • 
+      <a href="help/mss84.html">Help / Wiki</a>
+    </p>
 
     <h2>Cross-app workflow</h2>
-    <p>
-      Build your force once in TRS:80, then fight with it in MSS:84. Export a Lance from TRS:80 (JSON) and import it directly into MSS:84 — pilot details and team colors carry over. :contentReference[oaicite:11]{index=11}
-    </p>
-
-    <div class="hr"></div>
+    <p>Build your force once in TRS:80, then fight with it in MSS:84. Export a Lance from TRS:80 (JSON) and import it directly into MSS:84 — pilot details and team colors carry over.</p>
 
     <h2>Credits & licenses</h2>
-    <div class="card">
-      <ul>
-        <li><strong>License:</strong> All three repos (loader, TRS:80, MSS:84) are published under the MIT License. See each repo’s <code>LICENSE</code>. :contentReference[oaicite:12]{index=12}</li>
-        <li><strong>Data:</strong> TRS:80 leverages MegaMek JSON data sources (CC BY-NC-SA 4.0). :contentReference[oaicite:13]{index=13}</li>
-        <li><strong>Sheets:</strong> MSS:84 integrates with <a href="https://sheets.flechs.net" target="_blank" rel="noopener">Flechs Sheets</a> for record-keeping in side docks. :contentReference[oaicite:14]{index=14}</li>
-      </ul>
-      <p class="muted">
-        BattleTech and all associated terms are trademarks of their respective owners. These tools are non-commercial fan projects and are not affiliated with or endorsed by the IP holders.
-      </p>
-    </div>
+    <ul>
+      <li><strong>License:</strong> All three repos (loader, TRS:80, MSS:84) are published under the MIT License. See each repo’s LICENSE.</li>
+      <li><strong>Data:</strong> TRS:80 leverages MegaMek JSON data sources (CC BY-NC-SA 4.0).</li>
+      <li><strong>Sheets:</strong> MSS:84 integrates with Flechs Sheets for record-keeping in side docks.</li>
+      <li><strong>IP Disclaimer:</strong> BattleTech and all associated terms are trademarks of their respective owners. These tools are non-commercial fan projects and are not affiliated with or endorsed by the IP holders.</li>
+    </ul>
 
     <h2>Contact & feedback</h2>
-    <p>
-      Open issues or discussions in the respective GitHub repositories, or file requests via the Wikis/READMEs linked above.
-    </p>
+    <p>Open issues or discussions in the respective GitHub repositories, or file requests via the Wikis/READMEs linked above.</p>
+  </main>
 
-  </div>
+  <script src="script.js"></script>
 </body>
 </html>
