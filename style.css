@@ -171,5 +171,3 @@ main{ padding-top:44px; min-height:calc(100vh - 44px); }
 .led.err.warn::before{ color:var(--term-amber); opacity:1 }
 .right{ margin-left:auto; }
 .mono{ font-family:inherit; opacity:.9 }
-
-
