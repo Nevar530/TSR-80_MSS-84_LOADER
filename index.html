@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TRS:80 || MSS:84 Loader</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <button id="hamburger" aria-label="Menu">≡</button>
+    <div class="brand">TRS:80<span class="accent">||</span>MSS:84</div>
+  </header>
+
+  <!-- SIDE MENU -->
+  <nav id="menu" class="menu" aria-label="Main">
+    <a data-open="trs80" role="button" aria-label="Open TRS:80">Technical Readout System</a>
+    <a data-open="skirmish" role="button" aria-label="Open MSS:84">Mobile Skirmish System</a>
+    <hr>
+    <a href="help/trs80.html">Help • TRS:80</a>
+    <a href="help/skirmish.html">Help • MSS:84</a>
+    <a href="about.html">About</a>
+    <hr>
+    <a data-action="close" role="button">Close</a>
+  </nav>
+
+  <main>
+    <!-- 1) BOOT / OVERLAY (clean, no-ASCII) -->
+    <section id="boot" class="boot" aria-hidden="false">
+      <div class="boot__vignette"></div>
+      <div class="boot__scan"></div>
+      <div class="boot__panel" role="dialog" aria-label="Suite Boot Loader">
+        <header class="boot__hdr">
+          <h1 class="boot__title">TRS:80||MSS:84 // BOOT LOADER</h1>
+          <div class="boot__meta">CAT#: BSU-LOADER v1.2 • PREFACE • PAGE 00</div>
+        </header>
+
+        <pre id="boot-log" class="boot__log" aria-live="polite"></pre>
+
+        <div class="boot__progress" aria-hidden="true">
+          <div id="boot-bar" class="boot__bar"></div>
+        </div>
+
+        <div class="boot__hints">
+          <div id="boot-hint" class="boot__hint">PRESS <kbd>ENTER</kbd> TO CONTINUE ▌ • AUTO WHEN READY</div>
+          <label class="boot__skip">
+            <input id="boot-skip" type="checkbox"> Skip next time on this device
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2) HOME (logos) -->
+    <section id="home" class="home" hidden>
+      <div class="logos" id="logo-cards"></div>
+    </section>
+
+    <!-- 3) VIEWER (iframe apps) -->
+    <section id="viewer" class="viewer" hidden>
+      <div class="frame">
+        <div class="frame-top">
+          <button id="btn-close" class="btn small" title="Close">×</button>
+          <div id="frame-title" class="title">Loading…</div>
+          <a id="open-new" class="btn small ghost" target="_blank" rel="noopener">Open in new</a>
+        </div>
+        <iframe id="frame" title="App"></iframe>
+        <div class="frame-bottom leds">
+          <span class="led on">PWR</span>
+          <span id="hud-net" class="led">NET</span>
+          <span id="hud-err" class="led">ERR</span>
+          <span class="right mono">N50://DATA_TERMINAL</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
