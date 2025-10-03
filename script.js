@@ -190,27 +190,45 @@ function startBoot(){
 }
 
 /* ========= 7) Home: logos ========= */
+// Logos + copy drawn from each README
 const LOGOS = [
-  { slug:'trs80', alt:'TRS:80 Logo',
-    src:'https://raw.githubusercontent.com/Nevar530/Battletech-Mobile-Skirmish/main/images/TRS80LOGO.png' },
-  { slug:'skirmish', alt:'Mobile Skirmish Logo',
-    src:'https://raw.githubusercontent.com/Nevar530/Battletech-Mobile-Skirmish/main/images/MSS84LOGO.png' }
+  {
+    slug: 'trs80',
+    alt:  'TRS:80 Logo',
+    src:  'https://raw.githubusercontent.com/Nevar530/Battletech-Mobile-Skirmish/main/images/TRS80LOGO.png',
+    title: 'TRS:80',
+    sub:   'Technical Readout System',
+    blurb: 'Browse 400+ chassis / 2,500+ variants, full TRO panels, G.A.T.O.R. calculator, Lance Builder, export to MSS:84.'
+  },
+  {
+    slug: 'skirmish',
+    alt:  'Mobile Skirmish Logo',
+    src:  'https://raw.githubusercontent.com/Nevar530/Battletech-Mobile-Skirmish/main/images/MSS84LOGO.png',
+    title: 'MSS:84',
+    sub:   'Mobile Skirmish System',
+    blurb: 'Hex-map engine, terrain/height/cover tools, tokens, initiative & dice, LOS/measure, Flechs Sheets docks, imports TRS:80 exports.'
+  }
 ];
 
 let homeRendered = false;
 function renderHomeOnce(){
   if (homeRendered) return;
   homeRendered = true;
-  logoCards.innerHTML = LOGOS.map(l=>`
-    <a class="logo-card" data-open="${l.slug}" role="button" aria-label="Open ${l.alt}">
+  logoCards.innerHTML = LOGOS.map(l => `
+    <a class="logo-card" data-open="${l.slug}" role="button" aria-label="Open ${l.title}">
       <img src="${l.src}" alt="${l.alt}">
-    </a>`).join('');
+      <div class="logo-title">${l.title}</div>
+      <div class="logo-sub">${l.sub}</div>
+      <div class="logo-blurb">${l.blurb}</div>
+    </a>
+  `).join('');
   logoCards.addEventListener('click', (e)=>{
-    const a=e.target.closest('[data-open]');
+    const a = e.target.closest('[data-open]');
     if (!a) return;
     openApp(a.dataset.open);
   });
 }
+
 
 /* ========= 8) Init ========= */
 const params = new URLSearchParams(location.search);
