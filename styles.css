@@ -147,6 +147,22 @@ main{ padding-top:44px; min-height:calc(100vh - 44px); }
   .logo-card img{ max-width:80vw; max-height:30vh; }
 }
 
+/* Logo cards with description */
+.logo-card {
+  display:flex; flex-direction:column; align-items:center; gap:.6rem;
+  border:2px solid var(--term-green); border-radius:12px;
+  background:var(--term-black); padding:1rem 1rem 1.1rem; max-width:420px;
+  box-shadow: 0 0 0 1px rgba(0,255,122,.08) inset;
+  transition:transform .18s ease, border-color .18s ease;
+  cursor:pointer; text-align:center;
+}
+.logo-card:hover { transform:translateY(-2px); border-color:var(--term-amber); }
+.logo-card img { max-width:280px; height:auto; display:block; }
+.logo-title { font-weight:800; letter-spacing:.06em; color:var(--term-green); }
+.logo-sub { color:#a7d9c8; font-size:12px; opacity:.95; }
+.logo-blurb { color:#cfe8d8; font-size:12px; opacity:.9; }
+
+
 /* ===== 3) VIEWER ===== */
 .viewer[hidden]{ display:none; }
 .frame{
